@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<a class="btn btn-primary" href="{% url 'contact_create' %}">Добавить контакт</a>
+{% for contact in contact_list %}
+  <div class="row" style="margin-top: 20px">
+    <div class="card">
+      <div class="card-body">           
+        <h5 class="card-title text-primary">{{ contact.username }}</h5>
+        <a class="btn btn-primary" href="{% url 'contact_detail' contact.id %}">Подробнее</a>
+        <a class="btn btn-primary" href="{% url 'contact_update' contact.id %}">Изменить</a>
+        <a class="btn btn-primary" href="{% url 'contact_delete' contact.id %}">Удалить</a>
+    </div>
+  </div>
+{% endfor %}
+{% endblock %}
